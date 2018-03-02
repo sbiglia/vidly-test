@@ -199,6 +199,14 @@
     <Compile Include="Migrations\201803020429553_AddMembershipType.Designer.cs">
       <DependentUpon>201803020429553_AddMembershipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803020433331_PopulateMembershipType.cs" />
+    <Compile Include="Migrations\201803020433331_PopulateMembershipType.Designer.cs">
+      <DependentUpon>201803020433331_PopulateMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803020445522_SetMaxNameSize.cs" />
+    <Compile Include="Migrations\201803020445522_SetMaxNameSize.Designer.cs">
+      <DependentUpon>201803020445522_SetMaxNameSize.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -341,6 +349,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803020429553_AddMembershipType.resx">
       <DependentUpon>201803020429553_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803020433331_PopulateMembershipType.resx">
+      <DependentUpon>201803020433331_PopulateMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803020445522_SetMaxNameSize.resx">
+      <DependentUpon>201803020445522_SetMaxNameSize.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
