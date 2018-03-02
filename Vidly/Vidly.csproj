@@ -207,6 +207,14 @@
     <Compile Include="Migrations\201803020445522_SetMaxNameSize.Designer.cs">
       <DependentUpon>201803020445522_SetMaxNameSize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803020524402_AddNameToMembershipType.cs" />
+    <Compile Include="Migrations\201803020524402_AddNameToMembershipType.Designer.cs">
+      <DependentUpon>201803020524402_AddNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803021347078_AddBirthdateToCostumer.cs" />
+    <Compile Include="Migrations\201803021347078_AddBirthdateToCostumer.Designer.cs">
+      <DependentUpon>201803021347078_AddBirthdateToCostumer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -355,6 +363,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803020445522_SetMaxNameSize.resx">
       <DependentUpon>201803020445522_SetMaxNameSize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803020524402_AddNameToMembershipType.resx">
+      <DependentUpon>201803020524402_AddNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803021347078_AddBirthdateToCostumer.resx">
+      <DependentUpon>201803021347078_AddBirthdateToCostumer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

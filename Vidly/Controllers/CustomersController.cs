@@ -31,7 +31,7 @@ namespace Vidly.Controllers
         [Route("Customers/Details/{id}")]
         public ActionResult Detail(int id)
         {
-            var found = (from customer in _context.Customers where customer.Id == id select customer).FirstOrDefault();
+            var found = (from customer in _context.Customers.Include(c=> c.MembershipType) where customer.Id == id select customer).FirstOrDefault();
 
             if (found == null)
             {
