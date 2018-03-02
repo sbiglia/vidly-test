@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.Ajax.Utilities;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 using Vidly.Models;
 using Vidly.ViewModels;
 
@@ -12,49 +14,39 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
 
-        private List<Movie> _defaultMovies = new List<Movie>
+        private readonly ApplicationDbContext _context;
+
+        public MoviesController()
         {
-            new Movie {Id = 1, Name = "Shrek"},
-            new Movie {Id = 2, Name = "Wall-e"}
-        };
-
-        // GET: Movies/Random
-        public ActionResult Random()
-        {
-            var movie = new Movie() {Name = "Shrek!"};
-
-            var customers = new List<Customer>
-            {
-                new Customer {Name = "Customer 1"},
-                new Customer {Name = "Customer 2"}
-            };
-
-            var viewModel = new RandomViewViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            
-            return View(viewModel);
-
+            _context = new ApplicationDbContext();
         }
 
-        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+        protected override void Dispose(bool disposing)
         {
-            return Content($"{year}/{month}");
-        }
-
-
-        public ActionResult Edit(int id)
-        {
-            return Content("id=" + id);
+            _context.Dispose();
+            base.Dispose(disposing);
         }
 
         //movies
         public ActionResult Index(int? pageIndex, string sortBy)
         {
-            return View(_defaultMovies);
+            var movies = _context.Movies.Include(c => c.MovieGenreType);
+
+            return View(movies);
+        }
+
+        [Route("Movies/Details/{id}")]
+        public ActionResult Detail(int id)
+        {
+            var found = (from movie in _context.Movies.Include(c => c.MovieGenreType) where movie.Id == id select movie).FirstOrDefault();
+
+            if (found == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            return View(found);
         }
     }
 }
