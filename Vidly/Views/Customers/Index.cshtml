@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Customers</h2>
+
+<a class="btn btn-primary" href="/Customers/New">New Customer</a>
 
 @if (!Model.Any())
 {
@@ -12,14 +14,14 @@
 }
 else
 {
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Customer</th>
-                <th>Membership Type</th>
-            </tr>
-        </thead>
-        <tbody>
+<table class="table table-bordered table-hover mt-2">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Membership Type</th>
+        </tr>
+    </thead>
+    <tbody>
         @foreach (var customer in Model)
         {
             <tr>
@@ -27,8 +29,8 @@ else
                 <td>@customer.MembershipType.Name</td>
             </tr>
         }
-        </tbody>
+</tbody>
 
-    </table>
+</table>
 }
 
