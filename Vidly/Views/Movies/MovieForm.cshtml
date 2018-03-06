@@ -1,6 +1,6 @@
 ﻿@model Vidly.ViewModels.Customers.MovieFormViewModel
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,25 +11,25 @@
     @Html.ValidationSummary(true, "Please fix the folowing errors.")
     <div class="form-group">
         <label for="Movie_Name">Name</label>
-        @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
     </div>
     <div class="form-group">
         <label for="Movie_ReleaseDate">Release Date</label>
-        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.ReleaseDate, "The Release Date field is required.")
+        @Html.TextBoxFor(m => m.ReleaseDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ReleaseDate, "The Release Date field is required.")
     </div>
     <div class="form-group">
         <label for="Movie_MoviGenreType">Genre</label>
-        @Html.DropDownListFor(m => m.Movie.MovieGenreTypeId, new SelectList(Model.MovieGenreTypes, "Id", "Name"), "Select Genre...", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.MovieGenreTypeId, "The Genre field is required.")
+        @Html.DropDownListFor(m => m.MovieGenreTypeId, new SelectList(Model.MovieGenreTypes, "Id", "Name"), "Select Genre...", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.MovieGenreTypeId, "The Genre field is required.")
     </div>
     <div class="form-group">
         <label for="Movie_NumberInStock">Name</label>
-        @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
+        @Html.TextBoxFor(m => m.NumberInStock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NumberInStock)
     </div>
-    @Html.HiddenFor(m => m.Movie.Id)
+    @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
