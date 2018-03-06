@@ -17,6 +17,8 @@ namespace Vidly.Dtos
 
         public byte MovieGenreTypeId { get; set; }
 
+        public MovieGenreTypeDto MovieGenreType { get; set; }
+
         public DateTime ReleaseDate { get; set; }
 
         [Range(1, 20)]
